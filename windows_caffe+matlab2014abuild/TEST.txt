@@ -1,1 +1,11 @@
-123
+1.安装好matlab 安装教程可按如下网站 安装 https://jingyan.baidu.com/article/c275f6ba218d43e33d7567fd.html
+2.下载caffe 之前caffe都是自带的有windows的sln的  现在的版本好像都没有了 我直接提供有windows的sln的 解压 用vs2013 打开就好。
+3.在caffe-root/windows目录下复制一份CommonSettings.props.example 并去掉后面的example，然后vs打开caffe.sln。
+4.打开后页面最顶端的props目录下的CommonSettings.props打开,里面可以设置是否用cuda python matlab等,我用的是cudnn+matlab,cuda+cudnn之前要事先安装好,matlab下面要修改一下matlab所在目录,安装在哪里的 就怎么给它.
+5.我是安装在D盘的,改成如下:<MatlabDir>D:\Program Files\MATLAB\R2014a</MatlabDir>
+        <LibraryPath>$(MatlabDir)\extern\lib\win64\microsoft;$(LibraryPath)</LibraryPath>
+        <IncludePath>$(MatlabDir)\extern\include;$(MatlabDir)\toolbox\distcomp\gpu\extern\include;$(IncludePath)</IncludePath>
+6.然后可以编译了，编译成功后会在Build/x64/Release 目录下生成很多文件 还有matcaffe。
+7.打开matlab，点开设置路径，添加刚才的matcaffe目录。
+8.把Release这个目录添加到系统环境变量（有些情况下可不加，建议加）。
+9.安装配置完毕，有时安装完成直接跑例子 跑不通 建议重启matlab 再试。
